@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class PracticeFormPage {
+
     private final SelenideElement firstName = $("#firstName"),
             lastName = $("#lastName"),
             userEmail = $("#userEmail"),
@@ -20,8 +21,6 @@ public class PracticeFormPage {
             hobbiesWrapper = $("#hobbiesWrapper"),
             currentAddress = $("#currentAddress"),
             stateCityWrapper = $("#stateCity-wrapper"),
-            selectState3Option3 = $("#react-select-3-option-3"),
-            selectState4Option1 = $("#react-select-4-option-1"),
             uploadPicture = $("#uploadPicture"),
             submit = $("#submit");
 
@@ -76,15 +75,15 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setStateCityWrapper(String value) {
+    public PracticeFormPage setStateCityWrapper(String value, String name) {
         switch (value) {
             case "Select State":
                 stateCityWrapper.$(byText(value)).click();
-                selectState3Option3.click();
+                stateCityWrapper.$(byText(name)).click();
                 break;
             case "Select City":
                 stateCityWrapper.$(byText(value)).click();
-                selectState4Option1.click();
+                stateCityWrapper.$(byText(name)).click();
                 break;
         }
         return this;
