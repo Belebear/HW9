@@ -10,7 +10,6 @@ import java.util.Locale;
 
 import static utils.RandomTestData.*;
 
-@Tag("simple")
 public class PracticeFormPageWithFakerTest extends BaseTest {
 
     String firstName = getFirstName();
@@ -30,6 +29,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
+    @Tag("simple")
     void fillFormTest() {
         practiceFormPage.openPage()
                 .setFirstName(firstName)
@@ -59,6 +59,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
+    @Tag("simple")
     void minFormTest() {
         practiceFormPage.openPage()
                 .setFirstName(firstName)
@@ -81,6 +82,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
+    @Tag("simple")
     void emptyFormTest() {
         practiceFormPage.openPage()
                 .setSubmit()
