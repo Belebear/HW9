@@ -47,7 +47,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
         step("Ввод даты рождения", () -> practiceFormPage.setDateOfBirth(day, month, year));
         step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
 
-        practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
+        step("Проверка таблицы", () -> practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
                 .checkResultTable("Student Email", userEmail)
                 .checkResultTable("Gender", gender)
                 .checkResultTable("Mobile", userNumber)
@@ -56,7 +56,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
                 .checkResultTable("Hobbies", hobbies)
                 .checkResultTable("Picture", "testFile.png")
                 .checkResultTable("Address", address)
-                .checkResultTable("State and City", state + " " + city);
+                .checkResultTable("State and City", state + " " + city));
     }
 
     @Test
@@ -69,17 +69,17 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
         step("Ввод телефона", () -> practiceFormPage.setUserNumber(userNumber));
         step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
 
-        practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
+        step("Проверка таблицы", () -> practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
                 .checkResultTable("Gender", gender)
                 .checkResultTable("Mobile", userNumber)
-                .checkResultTable("Date of Birth", LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMMM,yyyy", Locale.ENGLISH)));
+                .checkResultTable("Date of Birth", LocalDate.now().format(DateTimeFormatter.ofPattern("dd MMMM,yyyy", Locale.ENGLISH))));
 
-        practiceFormPage.checkMinResultTable("Subjects")
+        step("Проверка таблицы с минимальными значениями", () -> practiceFormPage.checkMinResultTable("Subjects")
                 .checkMinResultTable("Hobbies")
                 .checkMinResultTable("Picture")
                 .checkMinResultTable("Address")
                 .checkMinResultTable("Student Email")
-                .checkMinResultTable("State and City");
+                .checkMinResultTable("State and City"));
     }
 
     @Test
@@ -87,6 +87,6 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     void emptyFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
         step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
-        step("Проверка", () -> practiceFormPage.checkRedBorderColor());
+        step("Проверка валидации", () -> practiceFormPage.checkRedBorderColor());
     }
 }
