@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 
@@ -9,6 +10,7 @@ import java.util.Locale;
 
 import static utils.RandomTestData.*;
 
+@Tag("simple")
 public class PracticeFormPageWithFakerTest extends BaseTest {
 
     String firstName = getFirstName();
