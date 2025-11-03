@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
@@ -30,6 +31,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
+    @DisplayName("Заполнение всех форм и провекра их значений в результирующей таблице")
     @Tag("demoqaHW")
     void fillFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
@@ -60,6 +62,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Заполнение обязательных полей и провекра их значений в результирующей таблице")
     @Tag("demoqaHW")
     void minFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
@@ -83,6 +86,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("валидация обязательного заполнения форм")
     @Tag("demoqaHW")
     void emptyFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
