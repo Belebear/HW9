@@ -6,6 +6,20 @@ plugins {
 group = 'ru.mail.barkalov'
 version = '1.0'
 
+allure{
+    report {
+        version.set("2.24.0")
+    }
+    adapter{
+        aspectjWeaver.set(true)
+        frameworks{
+            junit5{
+                adapterVersion.set("2.24.0")
+            }
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -17,7 +31,8 @@ dependencies {
     implementation(
             "com.codeborne:selenide:7.11.1",
             "org.slf4j:slf4j-simple:2.0.17",
-            "com.github.javafaker:javafaker:1.0.2"
+            "com.github.javafaker:javafaker:1.0.2",
+            'io.qameta.allure:allure-selenide:2.24.0'
     )
 }
 

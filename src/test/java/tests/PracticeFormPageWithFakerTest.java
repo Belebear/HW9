@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import static io.qameta.allure.Allure.step;
 import static utils.RandomTestData.*;
 
 public class PracticeFormPageWithFakerTest extends BaseTest {
@@ -31,20 +32,20 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     @Test
     @Tag("simple")
     void fillFormTest() {
-        practiceFormPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserEmail(userEmail)
-                .setSubjectInput(subjects)
-                .setUserNumber(userNumber)
-                .setHobbiesWrapper(hobbies)
-                .setStateCityWrapper("Select State", state)
-                .setStateCityWrapper("Select City", city)
-                .setCurrentAddress(address)
-                .setUploadPicture()
-                .setDateOfBirth(day, month, year)
-                .setSubmit();
+        step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
+        step("Ввод имени", () -> practiceFormPage.setFirstName(firstName));
+        step("Ввод фамилии", () -> practiceFormPage.setLastName(lastName));
+        step("Выбор пола", () -> practiceFormPage.setGender(gender));
+        step("Ввод email", () -> practiceFormPage.setUserEmail(userEmail));
+        step("Выбор шокльного предмета", () -> practiceFormPage.setSubjectInput(subjects));
+        step("Ввод телефона", () -> practiceFormPage.setUserNumber(userNumber));
+        step("Выбор хобби", () -> practiceFormPage.setHobbiesWrapper(hobbies));
+        step("Выбор штата", () -> practiceFormPage.setStateCityWrapper("Select State", state));
+        step("Выбор города", () -> practiceFormPage.setStateCityWrapper("Select City", city));
+        step("Ввод адреса", () -> practiceFormPage.setCurrentAddress(address));
+        step("Загрузка картинки", () -> practiceFormPage.setUploadPicture());
+        step("Ввод даты рождения", () -> practiceFormPage.setDateOfBirth(day, month, year));
+        step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
 
         practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
                 .checkResultTable("Student Email", userEmail)
@@ -61,12 +62,12 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     @Test
     @Tag("simple")
     void minFormTest() {
-        practiceFormPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setSubmit();
+        step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
+        step("Ввод имени", () -> practiceFormPage.setFirstName(firstName));
+        step("Ввод фамилии", () -> practiceFormPage.setLastName(lastName));
+        step("Выбор пола", () -> practiceFormPage.setGender(gender));
+        step("Ввод телефона", () -> practiceFormPage.setUserNumber(userNumber));
+        step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
 
         practiceFormPage.checkResultTable("Student Name", firstName + " " + lastName)
                 .checkResultTable("Gender", gender)
@@ -84,8 +85,8 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     @Test
     @Tag("simple")
     void emptyFormTest() {
-        practiceFormPage.openPage()
-                .setSubmit()
-                .checkRedBorderColor();
+        step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
+        step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
+        step("Проверка", () -> practiceFormPage.checkRedBorderColor());
     }
 }
