@@ -33,6 +33,7 @@ public class BaseTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Attach.getVideoUrl();
         Selenide.closeWebDriver();
     }
 }

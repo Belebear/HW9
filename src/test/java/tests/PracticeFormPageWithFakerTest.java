@@ -30,7 +30,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
-    @Tag("simple")
+    @Tag("demoqaHW")
     void fillFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
         step("Ввод имени", () -> practiceFormPage.setFirstName(firstName));
@@ -60,7 +60,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
-    @Tag("simple")
+    @Tag("demoqaHW")
     void minFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
         step("Ввод имени", () -> practiceFormPage.setFirstName(firstName));
@@ -83,7 +83,7 @@ public class PracticeFormPageWithFakerTest extends BaseTest {
     }
 
     @Test
-    @Tag("simple")
+    @Tag("demoqaHW")
     void emptyFormTest() {
         step("Открытие страницы demoqa", () -> practiceFormPage.openPage());
         step("Клик на кнопку подтверждения", () -> practiceFormPage.setSubmit());
