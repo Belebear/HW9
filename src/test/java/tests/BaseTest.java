@@ -19,7 +19,7 @@ public class BaseTest {
     public static void setUp() {
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.browser = System.getProperty("browser","chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion","129");
+        Configuration.browserVersion = System.getProperty("browserVersion","127");
         Configuration.browserCapabilities = new ChromeOptions()
                 .addArguments("--force-device-scale-factor=0.6");
         Configuration.baseUrl = "https://demoqa.com";
