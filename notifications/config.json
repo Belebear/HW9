@@ -11,7 +11,7 @@
     "customData": {}
   },
   "telegram": {
-    "token": "https://api.telegram.org/bot8558435077:AAHd5ThZ_wAp4D1gdMrhwLHyOChAqE_kV0k/getUpdates",
+    "token": "8558435077:AAHd5ThZ_wAp4D1gdMrhwLHyOChAqE_kV0k/getUpdates",
     "chat": "-1003452655192",
     "topic": "",
     "replyTo": "",
